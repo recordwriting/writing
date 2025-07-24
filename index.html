@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Record Writing Services</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8f9ff;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background-color: #005bbb;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    .pricing-table, .form-section {
+      margin: 40px 0;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    table th, table td {
+      padding: 12px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #005bbb;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    footer {
+      background: #eee;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+    .status {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #e8f5e9;
+      border: 1px solid #4caf50;
+      color: #2e7d32;
+      display: none;
+    }
+    .note {
+      background-color: #fff3cd;
+      border: 1px solid #ffeeba;
+      color: #856404;
+      padding: 15px;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+    .date-label {
+      margin: 10px 0 0;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Record Writing Services – Neat, Fast, and Affordable!</h1>
+    <p>Submit your empty record books. Get them back completed in a week!</p>
+  </header>
+
+  <div class="container">
+    <div class="pricing-table">
+      <h2>Pricing</h2>
+      <table>
+        <tr>
+          <th>Type</th>
+          <th>Price per Page</th>
+        </tr>
+        <tr>
+          <td>Normal Lab Record</td>
+          <td>₹5</td>
+        </tr>
+        <tr>
+          <td>With Diagrams</td>
+          <td>₹7</td>
+        </tr>
+        <tr>
+          <td>Emergency (1-day)</td>
+          <td>₹12</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="form-section">
+      <h2>Details</h2>
+      <form id="orderForm" method="POST" action="https://script.google.com/macros/s/AKfycbwMZrqISnelmliB7iquew7QaWkZ3NLftUTUuTE1yxMtMfrRF44dTwGFwunDJSY3GA/exec">
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <input type="tel" name="phone" id="phone" placeholder="Phone Number (10 digits)" pattern="\d{10}" maxlength="10" required>
+        <input type="text" name="subject" placeholder="Subject" required>
+        <input type="number" name="pages" placeholder="Estimated Pages" required>
+        <select name="recordType" required>
+          <option value="">Select Record Type</option>
+          <option value="Normal">Normal</option>
+          <option value="Diagrams">With Diagrams</option>
+          <option value="Emergency">Emergency</option>
+        </select>
+        <label class="date-label">Expected Submission Date:</label>
+        <input type="date" name="submissionDate" required>
+        <button type="submit">Confirm Order</button>
+      </form>
+
+      <div class="note">
+        📌 <strong>Note:</strong> Students must visit our physical address and hand over the empty record book. After completing the payment, they can return to collect the completed record.
+      </div>
+
+      <div class="status" id="orderStatus">
+        ✅ Thank you for ordering! Our support team will contact you soon.
+      </div>
+    </div>
+
+    <div class="form-section">
+      <h2>Contact Us</h2>
+      <p><strong>Phone:</strong><br>
+        <a href="tel:+918977700011">89777 00011</a><br>
+        <a href="tel:+919966746410">99667 46410</a>
+      </p>
+      <p><strong>Address:</strong><br>
+        Baker's Fun, Maisammaguda,<br>
+        Hyderabad – 500100
+      </p>
+      <p><strong>Google Maps:</strong>
+        <a href="https://maps.app.goo.gl/G6j69XBSUwtWo46q6?g_st=ac" target="_blank">
+          View on Maps
+        </a>
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Record Services | Built for students, by students
+  </footer>
+
+  <script>
+    document.getElementById("orderForm").onsubmit = function(e) {
+      const phone = document.getElementById("phone").value;
+      if (!/^\d{10}$/.test(phone)) {
+        alert("Please enter a valid 10-digit phone number.");
+        e.preventDefault();
+        return;
+      }
+      document.getElementById("orderStatus").style.display = "block";
+    };
+  </script>
+</body>
+</html>
